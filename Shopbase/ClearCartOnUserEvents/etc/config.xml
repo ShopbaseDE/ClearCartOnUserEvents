@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Shopbase_ClearCartOnUserEvents>
+            <version>1.0.0</version>
+        </Shopbase_ClearCartOnUserEvents>
+    </modules>
+    <global>
+        <models>
+            <shopbase_clearcartonuserevents>
+                <class>Shopbase_ClearCartOnUserEvents_Model</class>
+            </shopbase_clearcartonuserevents>
+        </models>
+    </global>
+    <frontend>
+        <events>
+            <customer_login>
+                <observers>
+                    <cart_login>
+                        <type>singleton</type>
+                        <class>shopbase_clearcartonuserevents/observer</class>
+                        <method>onLogin</method>
+                    </cart_login>
+                </observers>
+            </customer_login>
+            <customer_logout>
+                <observers>
+                    <cart_logout>
+                        <type>singleton</type>
+                        <class>shopbase_clearcartonuserevents/observer</class>
+                        <method>onLogout</method>
+                    </cart_logout>
+                </observers>
+            </customer_logout>
+        </events>
+    </frontend>
+</config>
